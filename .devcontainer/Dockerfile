@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   stow \
   zsh \
   curl \
+  openssh-client \
   xz-utils \
   && rm -rf /var/lib/apt/lists/*
 
@@ -53,5 +54,8 @@ ENV PATH="/home/dev/go/bin:${PATH}"
 
 # Set the starting directory to the new user's home folder
 WORKDIR /home/dev
+
+# Install dotfiles
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/tttinh/dotfiles/main/install.sh)"
 
 CMD ["zsh"]
