@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   git \
   stow \
+  tmux \
   zsh \
   curl \
   openssh-client \

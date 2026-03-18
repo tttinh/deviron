@@ -2,6 +2,8 @@
 
 A containerized development environment based on Debian, managed via devcontainer CLI.
 
+[NOTE] tmux not working properly inside devcontainer environment.
+
 ## What's Inside
 
 | Tool | Version | Source |
