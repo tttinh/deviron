@@ -16,7 +16,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   curl \
   openssh-client \
   xz-utils \
+  locales \
   && rm -rf /var/lib/apt/lists/*
+
+# Configure UTF-8 locale so tmux can render icons/glyphs correctly
+RUN sed -i '/en_US.UTF-8/s/^# //' /etc/locale.gen && locale-gen
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
 
 # Go — from go.dev
 RUN curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" \
